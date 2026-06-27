@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajwal T.S. | AI Engineer & Full Stack Developer Portfolio</title>
+    
+    <!-- SEO Optimization -->
+    <meta name="description" content="Portfolio of Prajwal T.S. - AI Engineer, Machine Learning Engineer, and Full Stack Developer. Showcase of production-grade AI systems, crop yield predictions, medical vision models, and RAG chatbots.">
+    <meta name="keywords" content="Prajwal T.S., AI Engineer, Machine Learning, Data Science, Full Stack Developer, Flask, Python, RAG, Skin Disease Detection, Crop Advisor, Portfolio">
+    <meta name="author" content="Prajwal T.S.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Prajwal T.S. | AI Engineer & Full Stack Developer">
+    <meta property="og:description" content="Explore advanced Machine Learning models, Computer Vision diagnostics, and RAG architectures built by Prajwal T.S.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og_image.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate_bg: '#0F172A',
+                        slate_card: 'rgba(30, 41, 59, 0.45)',
+                        accent_blue: '#2563EB',
+                        accent_sky: '#38BDF8',
+                        accent_green: '#10B981',
+                        accent_yellow: '#F59E0B',
+                    },
+                    fontFamily: {
+                        headings: ['Poppins', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        code: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body class="cursor-glow-container overflow-x-hidden">
+
+    <!-- Ambient Aurora Background -->
+    <div class="aurora-bg">
+        <div class="aurora-sphere aurora-1"></div>
+        <div class="aurora-sphere aurora-2"></div>
+        <div class="aurora-sphere aurora-3"></div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 px-4 md:px-8 py-4 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto glass-panel px-6 py-3 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group" id="nav-brand">
+                <span class="text-xl font-bold bg-gradient-to-r from-accent_sky to-accent_blue bg-clip-text text-transparent group-hover:opacity-80 transition">Prajwal T.S.</span>
+                <span class="hidden sm:inline-block px-2 py-0.5 text-[10px] font-mono border border-accent_sky/30 text-accent_sky rounded bg-accent_sky/10">AI DEV</span>
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-6" id="navbar-links">
+                <a href="#about" class="text-sm text-color-text-muted hover:text-white transition">About</a>
+                <a href="#skills" class="text-sm text-color-text-muted hover:text-white transition">Skills</a>
+                <a href="#timeline" class="text-sm text-color-text-muted hover:text-white transition">Timeline</a>
+                <a href="#projects" class="text-sm text-color-text-muted hover:text-white transition">Projects</a>
+                <a href="#playgrounds" class="text-sm text-color-text-muted hover:text-white transition">Playgrounds</a>
+                <a href="#certificates" class="text-sm text-color-text-muted hover:text-white transition">Certifications</a>
+                <a href="#resume" class="text-sm text-color-text-muted hover:text-white transition">Resume</a>
+                <a href="#contact" class="text-sm text-color-text-muted hover:text-white transition">Contact</a>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex btn-magnetic px-4 py-1.5 rounded-lg bg-accent_blue/20 hover:bg-accent_blue/30 text-accent_sky text-sm border border-accent_blue/40 font-medium transition" id="header-cta">Hire Me</a>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="lg:hidden text-white focus:outline-none p-1" id="mobile-menu-btn" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="hidden lg:hidden mt-2 max-w-7xl mx-auto glass-panel p-6 flex flex-col gap-4 text-center transition-all duration-300" id="mobile-nav">
+            <a href="#about" class="text-sm text-color-text-muted hover:text-white transition mobile-link">About</a>
+            <a href="#skills" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Skills</a>
+            <a href="#timeline" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Timeline</a>
+            <a href="#projects" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Projects</a>
+            <a href="#playgrounds" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Playgrounds</a>
+            <a href="#certificates" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Certifications</a>
+            <a href="#resume" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Resume</a>
+            <a href="#contact" class="text-sm text-color-text-muted hover:text-white transition mobile-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-4 md:px-8 overflow-hidden" id="home">
+        <!-- Interactive 2D Canvas Background -->
+        <canvas id="hero-canvas"></canvas>
+        
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Bio Info -->
+            <div class="lg:col-span-7 flex flex-col items-start text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent_blue/10 border border-accent_blue/30 text-accent_sky text-xs font-mono mb-6">
+                    <span class="w-2 h-2 rounded-full bg-accent_green animate-ping"></span>
+                    Available for Placements & Internships (2026 Grad)
+                </div>
+                
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-4 text-white leading-tight">
+                    Hi, I'm <span class="bg-gradient-to-r from-accent_sky via-accent_blue to-purple-500 bg-clip-text text-transparent">Prajwal T.S.</span>
+                </h1>
+                
+                <h2 class="text-xl sm:text-3xl font-semibold mb-6 text-slate-300 min-h-[40px]">
+                    I am <span id="typing-text" class="text-accent_sky font-mono"></span><span class="typing-cursor">|</span>
+                </h2>
+                
+                <p class="text-base sm:text-lg text-slate-400 mb-8 max-w-xl">
+                    A data-driven software developer specializing in training predictive machine learning models, scaling deep learning vision platforms, and orchestrating full-stack web applications.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 w-full sm:w-auto">
+                    <a href="#projects" class="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-accent_blue hover:bg-blue-700 text-white font-semibold transition hover:scale-[1.02] shadow-lg shadow-accent_blue/20 btn-magnetic" id="btn-hero-projects">View Projects</a>
+                    <a href="assets/PrajwalTS_resume.pdf" download="PrajwalTS_resume.pdf" class="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white font-semibold transition hover:scale-[1.02] btn-magnetic flex items-center justify-center gap-2" id="btn-hero-resume">
+                        <i class="fa-solid fa-download"></i> Download Resume
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Right Graphic Stats Panel -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="glass-panel w-full max-w-md p-8 relative overflow-hidden group">
+                    <div class="absolute -right-16 -top-16 w-36 h-36 bg-accent_blue/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -left-16 -bottom-16 w-36 h-36 bg-accent_sky/10 rounded-full blur-2xl"></div>
+                    
+                    <h3 class="text-lg font-bold mb-6 text-slate-200 border-b border-slate-700 pb-3 flex items-center justify-between">
+                        <span><i class="fa-solid fa-chart-line text-accent_sky mr-2"></i> Key Metrics</span>
+                        <span class="text-xs font-mono text-accent_sky font-normal">Active System</span>
+                    </h3>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="glass-panel bg-slate-900/50 p-4 border border-slate-800 flex flex-col items-center">
+                            <span class="text-3xl font-extrabold text-white mb-1" id="stat-projects">8+</span>
+                            <span class="text-xs text-color-text-muted text-center">AI & Web Projects</span>
+                        </div>
+                        <div class="glass-panel bg-slate-900/50 p-4 border border-slate-800 flex flex-col items-center">
+                            <span class="text-3xl font-extrabold text-white mb-1" id="stat-techs">15+</span>
+                            <span class="text-xs text-color-text-muted text-center">Technologies Used</span>
+                        </div>
+                        <div class="glass-panel bg-slate-900/50 p-4 border border-slate-800 flex flex-col items-center">
+                            <span class="text-3xl font-extrabold text-white mb-1" id="stat-certs">3+</span>
+                            <span class="text-xs text-color-text-muted text-center">Certifications</span>
+                        </div>
+                        <div class="glass-panel bg-slate-900/50 p-4 border border-slate-800 flex flex-col items-center">
+                            <span class="text-3xl font-extrabold text-white mb-1" id="stat-accuracy">96%</span>
+                            <span class="text-xs text-color-text-muted text-center">ML Training Peak</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 p-4 rounded-lg bg-accent_blue/5 border border-accent_blue/20 text-xs text-slate-400 text-center font-mono">
+                        System status: Online. Interactive Playgrounds active below.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-20 px-4 md:px-8 border-t border-slate-800/40 relative" id="about">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">About Me</h2>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Portrait Column -->
+                <div class="lg:col-span-4 flex justify-center">
+                    <div class="relative group">
+                        <!-- Neon gradient border glow -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-tr from-accent_sky via-accent_blue to-purple-500 rounded-2xl blur-lg opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                        <!-- Profile Card Container -->
+                        <div class="relative w-64 sm:w-72 aspect-[3/4.5] rounded-2xl overflow-hidden border border-slate-800 bg-slate-950/80 shadow-2xl transition duration-500 group-hover:scale-[1.03] group-hover:border-slate-700/80 flex items-center justify-center">
+                            <img src="assets/67c759ec-2c35-4ea8-8621-3743ce3d2d24.png" alt="Prajwal T.S." class="w-full h-full object-cover">
+                            <!-- Overlay badge -->
+                            <div class="absolute bottom-4 left-4 right-4 py-2 px-3 rounded-xl bg-slate-900/90 border border-slate-800/80 backdrop-blur-sm text-center">
+                                <span class="text-xs font-bold text-white tracking-wider block">Prajwal T.S.</span>
+                                <span class="text-[9px] font-mono text-accent_sky uppercase tracking-widest mt-0.5 block">AI Systems Architect</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Details Column -->
+                <div class="lg:col-span-8 space-y-6">
+                    <h3 class="text-2xl font-bold text-white">An Aspiring AI & Full Stack Developer</h3>
+                    <p class="text-slate-300">
+                        I am currently pursuing a **Bachelor of Computer Application (BCA)** at St. Anne's Degree College, Virajpet (2023–2026). My goal is to build intelligent, production-grade applications that bridge the gap between machine learning research and interactive web interfaces.
+                    </p>
+                    <p class="text-slate-300">
+                        Throughout my academic journey, I have completed specialized professional trainings with distinction. I bring hands-on experience in building and deploying crop valuation systems, AI-powered ATS resume matching engines, vector databases for RAG question-answering systems, and custom dermatological diagnostics with model transparency maps.
+                    </p>
+                    
+                    <!-- Quick Attributes Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-accent_sky/10 border border-accent_sky/20 flex items-center justify-center text-accent_sky">
+                                <i class="fa-solid fa-code-branch"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-200">Scalable Architecture Thinker</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-accent_blue/10 border border-accent_blue/20 flex items-center justify-center text-accent_sky">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-200">Creative Problem Solver</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-accent_green/10 border border-accent_green/20 flex items-center justify-center text-accent_green">
+                                <i class="fa-solid fa-chart-pie"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-200">Data Visualization Advocate</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-8 h-8 rounded bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-200">Continuous Learner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Lower Row: Core Values Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+                <div class="glass-panel p-6 space-y-3">
+                    <div class="w-10 h-10 rounded bg-accent_sky/10 border border-accent_sky/30 flex items-center justify-center text-accent_sky text-lg">
+                        <i class="fa-solid fa-gauge-high"></i>
+                    </div>
+                    <h5 class="text-sm font-bold text-white">Precision & Code Quality</h5>
+                    <p class="text-xs text-slate-400 leading-relaxed">Writing maintainable, clean code and structuring database models efficiently (SQLite, MySQL).</p>
+                </div>
+                
+                <div class="glass-panel p-6 space-y-3">
+                    <div class="w-10 h-10 rounded bg-accent_blue/10 border border-accent_blue/30 flex items-center justify-center text-accent_sky text-lg">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h5 class="text-sm font-bold text-white">Explainability in AI</h5>
+                    <p class="text-xs text-slate-400 leading-relaxed">Belief that machine learning should not be a black box—incorporating Grad-CAM maps for vision systems.</p>
+                </div>
+                
+                <div class="glass-panel p-6 space-y-3">
+                    <div class="w-10 h-10 rounded bg-accent_green/10 border border-accent_green/30 flex items-center justify-center text-accent_green text-lg">
+                        <i class="fa-solid fa-palette"></i>
+                    </div>
+                    <h5 class="text-sm font-bold text-white">Impact-Focused Design</h5>
+                    <p class="text-xs text-slate-400 leading-relaxed">Designing user interfaces (Bootstrap, Tailwind CSS, JS) that make complex AI tasks easily usable for non-technical visitors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate_bg/40 relative" id="skills">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Skills Matrix</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm">Interactive skill blocks grouped by technical category. Hover or click to highlight proficiency.</p>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Core AI & ML -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">Core AI & Machine Learning</h3>
+                            <i class="fa-solid fa-brain text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Supervised Learning (Regression)</span>
+                                <span class="font-mono text-accent_sky font-semibold">90%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Deep Learning (CNNs, Keras)</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Computer Vision (Image Classifiers)</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Data Science (EDA & Feature Eng)</span>
+                                <span class="font-mono text-accent_sky font-semibold">80%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="85">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Generative AI & RAG -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">Generative AI & RAG</h3>
+                            <i class="fa-solid fa-wand-magic-sparkles text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Google Gemini API Integration</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>RAG Pipelines (Vector Stores)</span>
+                                <span class="font-mono text-accent_sky font-semibold">80%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Semantic & Vector Search (FAISS)</span>
+                                <span class="font-mono text-accent_sky font-semibold">80%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Prompt Engineering & Chatbots</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="83">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">83%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Backend & Databases -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">Backend & Databases</h3>
+                            <i class="fa-solid fa-server text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Flask Backend & SQLAlchemy</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>RESTful APIs & Secure Auth</span>
+                                <span class="font-mono text-accent_sky font-semibold">80%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>SQLite & MySQL Database Design</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>PostgreSQL (Currently Learning)</span>
+                                <span class="font-mono text-accent_sky font-semibold">60%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="78">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">78%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4: Full-Stack Web -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">Full-Stack Stack</h3>
+                            <i class="fa-solid fa-layer-group text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Python, JS (ES6), PHP Core</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>HTML5 / CSS3 Layouts</span>
+                                <span class="font-mono text-accent_sky font-semibold">90%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Tailwind CSS & Bootstrap</span>
+                                <span class="font-mono text-accent_sky font-semibold">85%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Responsive UI/UX Integration</span>
+                                <span class="font-mono text-accent_sky font-semibold">80%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="85">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">85%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: AI-Assisted Development -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">AI-Assisted Dev</h3>
+                            <i class="fa-solid fa-code text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Cursor AI, Antigravity, GitHub</span>
+                                <span class="font-mono text-accent_sky font-semibold">92%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>AI-Assisted Code Gen & Refactor</span>
+                                <span class="font-mono text-accent_sky font-semibold">90%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>AI-Assisted Debugging & Testing</span>
+                                <span class="font-mono text-accent_sky font-semibold">90%</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Prototyping (ChatGPT, Gemini, Claude)</span>
+                                <span class="font-mono text-accent_sky font-semibold">88%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="90">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">90%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6: Next-Gen & Learning -->
+                <div class="glass-panel skill-card p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-bold text-white">Continuous Learning</h3>
+                            <i class="fa-solid fa-graduation-cap text-accent_sky text-xl"></i>
+                        </div>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>AI Agents (LangChain, LangGraph)</span>
+                                <span class="font-mono text-accent_sky font-semibold">Learning</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Model Context Protocol (MCP)</span>
+                                <span class="font-mono text-accent_sky font-semibold">Learning</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>Advanced RAG & Vector DBs</span>
+                                <span class="font-mono text-accent_sky font-semibold">Learning</span>
+                            </li>
+                            <li class="flex items-center justify-between text-sm text-slate-300">
+                                <span>MLOps (Docker, Kubernetes, Cloud AI)</span>
+                                <span class="font-mono text-accent_sky font-semibold">Learning</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="flex justify-center pt-4 border-t border-slate-800">
+                        <div class="circular-progress" data-value="70">
+                            <svg>
+                                <circle class="bg-circle" cx="40" cy="40" r="36"></circle>
+                                <circle class="progress-circle" cx="40" cy="40" r="36"></circle>
+                            </svg>
+                            <span class="progress-value">70%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-20 px-4 md:px-8 relative" id="timeline">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Education & Learning Journey</h2>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded"></div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Milestone 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2026 (Expected)</span>
+                        <h3 class="text-lg font-bold text-white mt-1">BCA Graduation</h3>
+                        <p class="text-sm text-slate-400 font-medium">St. Anne's Degree College, Virajpet</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Completing a Bachelor of Computer Application (BCA) focusing on programming concepts, database management, mathematics, and web architectures. Acted as a student lead on mini-projects.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Milestone 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2026</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Machine Learning with AI Certification</h3>
+                        <p class="text-sm text-slate-400 font-medium">Internshala training program</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Graduated with a score of <strong>96% (Top Performer Distinction)</strong>. Covered predictive modeling, neural networks, cross-validation tuning, regression structures, and scikit-learn model saves.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 3: Google GenAI -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2026</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Generative AI Foundations Certificate</h3>
+                        <p class="text-sm text-slate-400 font-medium">Google Cloud Training Program</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Comprehensive program covering Large Language Models (LLMs), attention mechanisms, Transformer architectures, prompt engineering, and RAG retrieval pipelines.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Milestone 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2025</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Data Science Certificate</h3>
+                        <p class="text-sm text-slate-400 font-medium">Internshala training program</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Scored <strong>78%</strong>. Gained expertise in NumPy, Pandas, Matplotlib, exploratory data analysis (EDA), cleaning statistical data, and visualization matrices.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 5: Web Development -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2025</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Web Development Training Certificate</h3>
+                        <p class="text-sm text-slate-400 font-medium">Internshala training program</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Hands-on program covering frontend architectures, HTML5, CSS3, JavaScript (ES6), and Bootstrap layouts to build modern responsive user interfaces.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Milestone 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-panel p-6">
+                        <span class="text-xs font-mono text-accent_sky">2025</span>
+                        <h3 class="text-lg font-bold text-white mt-1">Mobile Application Development Workshop</h3>
+                        <p class="text-sm text-slate-400 font-medium">St. Anne's Degree College, Virajpet</p>
+                        <p class="text-xs text-slate-300 mt-3">
+                            Participated in a technical workshop focusing on UI/UX mockups, mobile navigation paths, and platform deployment configurations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate_bg/40 relative" id="projects">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Project Case Studies</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm">Deep-dives into problem solving, architecture, and technology integration. Click any project to open detailed design blueprints.</p>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded mt-4"></div>
+            </div>
+            
+            <!-- Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="project-filters">
+                <button class="filter-btn active px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" data-filter="all">All Systems</button>
+                <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" data-filter="ai-ml">AI & ML Models</button>
+                <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" data-filter="fullstack">Full-Stack Web</button>
+                <button class="filter-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" data-filter="data-science">Analytics & Data Sci</button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-grid">
+                <!-- Project 1: AI Resume Analyzer -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="ai-ml" onclick="openProjectModal('resume-analyzer')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-accent_sky/40 text-accent_sky px-2 py-0.5 rounded bg-accent_sky/10">NLP & Gemini LLM</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">AI Resume Analyzer</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            An ATS resume scoring system with AI suggestions, skill parsing, and customizable match percentages for specific job descriptions.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Python</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Flask</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Gemini 2.5</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">SQLite</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: Medium</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: Disease Prediction System -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="ai-ml" onclick="openProjectModal('disease-prediction')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-accent_green/40 text-accent_green px-2 py-0.5 rounded bg-accent_green/10">Computer Vision</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">Skin Disease Diagnoser</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            Deep learning image classifier using CNN, Keras, and TensorFlow. Includes bilingual support (English/Kannada) and Grad-CAM medical attention mapping.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">TensorFlow</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Keras</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Flask</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Grad-CAM</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: High</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: College Notes RAG -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="ai-ml" onclick="openProjectModal('college-notes-rag')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-purple-500/40 text-purple-400 px-2 py-0.5 rounded bg-purple-500/10">RAG Chatbot</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">College Notes RAG Bot</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            Retrieval-Augmented Generation chatbot allowing students to search local academic PDFs using Gemini Embeddings, FAISS indices, and fallback TF-IDF search models.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Gemini API</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">FAISS</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">PyMuPDF</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: High</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: Crop Advisor Chatbot -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="ai-ml" onclick="openProjectModal('crop-advisor')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-accent_sky/40 text-accent_sky px-2 py-0.5 rounded bg-accent_sky/10">Recommendation System</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">Crop Advisor Chatbot</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            An agricultural recommendation bot matching soil data and real-time weather APIs to advise on crop optimization.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Python</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Weather API</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">SQL</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Tailwind</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: Medium</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 5: Crop Yield Vision -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="data-science" onclick="openProjectModal('crop-yield')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-accent_yellow/40 text-accent_yellow px-2 py-0.5 rounded bg-accent_yellow/10">ML Regression</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">Crop Yield Vision</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            Predictive agricultural pipeline estimating crop yields based on soil composition encoders and classical Scikit-learn regressors.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Scikit-learn</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Pandas</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Pickle</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Matplotlib</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: Medium</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 6: Property Price Prediction -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="data-science" onclick="openProjectModal('property-price')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-accent_yellow/40 text-accent_yellow px-2 py-0.5 rounded bg-accent_yellow/10">Predictive ML</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">EstateAI Valuation</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            ML property estimation engine with feature engineering, interactive admin dashboard graphs, and custom OTP password reset triggers.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Regression</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Flask</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">SQL</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">ReportLab</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: Medium</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 7: Student Accommodation -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="fullstack" onclick="openProjectModal('student-accommodation')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-blue-500/40 text-blue-400 px-2 py-0.5 rounded bg-blue-500/10">Full Stack System</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">Accommodation Web Portal</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            Full-stack role-based housing marketplace for students, landlords, and administrators. Completed with approval pipelines, reviews, and secure password hashing.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">PHP</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">MySQL</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">CSS Grid</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Sessions</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: High</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+
+                <!-- Project 8: GitHub Profile Documentation -->
+                <div class="glass-panel p-6 flex flex-col justify-between group cursor-pointer" data-category="fullstack" onclick="openProjectModal('github-profile')">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-[10px] font-mono border border-blue-500/40 text-blue-400 px-2 py-0.5 rounded bg-blue-500/10">Open Source</span>
+                            <span class="text-slate-500 text-xs"><i class="fa-solid fa-arrow-up-right-from-square group-hover:text-accent_sky transition"></i></span>
+                        </div>
+                        <h3 class="text-lg font-bold text-white group-hover:text-accent_sky transition mb-2">Developer Workspace templates</h3>
+                        <p class="text-xs text-slate-400 line-clamp-3 mb-4">
+                            Active maintenance of codebase structural templates, README profiles, and developer workflow setups.
+                        </p>
+                        <div class="flex flex-wrap gap-1.5 mb-6">
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Markdown</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Git Config</span>
+                            <span class="badge-tech px-2 py-0.5 rounded text-[10px]">Automation</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-slate-400 font-mono border-t border-slate-800/80 pt-4">
+                        <span>Complexity: Low</span>
+                        <span class="text-accent_sky">Deep Case Study →</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Playgrounds / Recruiter Showcase -->
+    <section class="py-20 px-4 md:px-8 relative" id="playgrounds">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs font-mono px-3 py-1 rounded-full bg-accent_sky/10 border border-accent_sky/30 text-accent_sky uppercase tracking-wider">Recruiter Center</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold mt-3 mb-4 text-white">Project Playgrounds</h2>
+                <p class="text-slate-400 max-w-xl mx-auto text-sm">
+                    Interact directly with simulated models in the browser. See his systems run logic immediately without leaving this page.
+                </p>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded mt-4"></div>
+            </div>
+            
+            <!-- Selector Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" id="playground-tabs">
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300 active" onclick="switchPlayground('ats')">ATS Simulator</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" onclick="switchPlayground('crop')">Crop Advisor</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" onclick="switchPlayground('med')">MedVision AI Demo</button>
+                <button class="tab-btn px-4 py-2 text-xs font-semibold rounded-full border border-slate-700 bg-slate-800 text-slate-300" onclick="switchPlayground('bot')">AI Chatbot</button>
+            </div>
+            
+            <!-- Playground Display Area -->
+            <div class="glass-panel p-8 max-w-4xl mx-auto min-h-[400px]">
+                
+                <!-- PLAYGROUND 1: ATS Simulator -->
+                <div id="pg-ats" class="space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-700 pb-3 mb-4">
+                        <i class="fa-solid fa-file-invoice text-2xl text-accent_sky"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">ATS Resume Matcher Simulator</h3>
+                            <p class="text-xs text-slate-400">Simulating the backend logic from [Resume analyzer](file:///C:/Users/Prajwal/3D%20Objects/Resume%20analyzer/ats_engine.py)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-2">Target Job Description</label>
+                            <textarea id="ats-jd" class="w-full h-36 p-3 rounded-lg widget-input text-xs font-mono" placeholder="Paste requirements here (e.g. Python, SQL, Flask, Machine Learning, TensorFlow)..."></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono text-slate-300 mb-2">Candidate Resume Text</label>
+                            <textarea id="ats-resume" class="w-full h-36 p-3 rounded-lg widget-input text-xs font-mono" placeholder="Paste resume details here..."></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-2">
+                        <button onclick="runAtsSimulation()" class="px-6 py-2.5 rounded-lg bg-accent_blue hover:bg-blue-700 font-semibold text-xs text-white transition hover:scale-[1.02] flex items-center gap-2">
+                            <i class="fa-solid fa-calculator"></i> Calculate Match Score
+                        </button>
+                        <button onclick="loadSampleAts()" class="px-4 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 transition">
+                            Load Demo Data
+                        </button>
+                    </div>
+                    
+                    <!-- Result -->
+                    <div id="ats-result" class="hidden glass-panel bg-slate-950/60 p-6 border border-slate-800 mt-4 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm font-bold text-white">Calculated ATS Score:</span>
+                            <span class="text-3xl font-extrabold text-accent_sky" id="ats-score-display">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-800 rounded-full h-2.5">
+                            <div class="bg-accent_sky h-2.5 rounded-full" id="ats-progress-bar" style="width: 0%"></div>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono pt-2">
+                            <div>
+                                <h4 class="text-accent_green font-bold">✓ Matching Keywords</h4>
+                                <ul id="ats-matches" class="list-disc pl-4 text-slate-400 mt-1 space-y-1"></ul>
+                            </div>
+                            <div>
+                                <h4 class="text-accent_yellow font-bold">✗ Missing Skills</h4>
+                                <ul id="ats-missing" class="list-disc pl-4 text-slate-400 mt-1 space-y-1"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLAYGROUND 2: Crop Advisor -->
+                <div id="pg-crop" class="hidden space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-700 pb-3 mb-4">
+                        <i class="fa-solid fa-seedling text-2xl text-accent_green"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">Crop recommendation playground</h3>
+                            <p class="text-xs text-slate-400">Simulating custom predictive regression matching from [crop-advisor-chatbot](file:///C:/Users/Prajwal/3D%20Objects/crop-advisor-chatbot)</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Inputs Grid -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Nitrogen (N)</label>
+                            <input type="number" id="crop-n" class="w-full p-2 rounded widget-input text-xs" value="90">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Phosphorus (P)</label>
+                            <input type="number" id="crop-p" class="w-full p-2 rounded widget-input text-xs" value="42">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Potassium (K)</label>
+                            <input type="number" id="crop-k" class="w-full p-2 rounded widget-input text-xs" value="43">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">pH Soil Level</label>
+                            <input type="number" id="crop-ph" class="w-full p-2 rounded widget-input text-xs" value="6.5" step="0.1">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Temp (°C)</label>
+                            <input type="number" id="crop-temp" class="w-full p-2 rounded widget-input text-xs" value="23">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Humidity (%)</label>
+                            <input type="number" id="crop-hum" class="w-full p-2 rounded widget-input text-xs" value="82">
+                        </div>
+                        <div class="col-span-2">
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Rainfall (mm)</label>
+                            <input type="number" id="crop-rain" class="w-full p-2 rounded widget-input text-xs" value="200">
+                        </div>
+                    </div>
+                    
+                    <div class="pt-2">
+                        <button onclick="runCropSimulation()" class="px-6 py-2.5 rounded-lg bg-accent_green hover:bg-emerald-600 font-semibold text-xs text-white transition hover:scale-[1.02]">
+                            <i class="fa-solid fa-wand-magic-sparkles mr-2"></i> Predict Recommended Crop
+                        </button>
+                    </div>
+                    
+                    <!-- Result -->
+                    <div id="crop-result" class="hidden glass-panel bg-slate-950/60 p-6 border border-slate-800 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-mono text-slate-400 block">Recommended Crop</span>
+                            <span class="text-2xl font-extrabold text-accent_green" id="crop-display">Rice</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-xs font-mono text-slate-400 block">Valuation Confidence</span>
+                            <span class="text-lg font-bold text-white" id="crop-conf-display">94.8%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLAYGROUND 3: MedVision -->
+                <div id="pg-med" class="hidden space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-700 pb-3 mb-4">
+                        <i class="fa-solid fa-stethoscope text-2xl text-accent_sky"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">MedVision Skin Classifier (Mock)</h3>
+                            <p class="text-xs text-slate-400">Simulating CNN Grad-CAM activation grids from [MedVisionAi](file:///C:/Users/Prajwal/3D%20Objects/MedVisionAi/app.py)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-xs text-slate-300">Click a sample image below to run the classification model and check target localization (Grad-CAM output):</p>
+                    
+                    <!-- Image Samples -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div onclick="selectSkinSample('melanoma')" class="glass-panel p-2 border border-slate-700/80 hover:border-accent_sky cursor-pointer transition text-center bg-slate-900/60 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-rose-950/30 rounded border border-rose-950 flex items-center justify-center text-rose-500 font-mono font-bold text-xs mb-2">M</div>
+                            <span class="text-[10px] font-semibold text-slate-200">Sample 1: Melanoma</span>
+                        </div>
+                        <div onclick="selectSkinSample('hfmd')" class="glass-panel p-2 border border-slate-700/80 hover:border-accent_sky cursor-pointer transition text-center bg-slate-900/60 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-amber-950/30 rounded border border-amber-950 flex items-center justify-center text-amber-500 font-mono font-bold text-xs mb-2">H</div>
+                            <span class="text-[10px] font-semibold text-slate-200">Sample 2: HFMD</span>
+                        </div>
+                        <div onclick="selectSkinSample('healthy')" class="glass-panel p-2 border border-slate-700/80 hover:border-accent_sky cursor-pointer transition text-center bg-slate-900/60 flex flex-col items-center">
+                            <div class="w-12 h-12 bg-emerald-950/30 rounded border border-emerald-950 flex items-center justify-center text-emerald-400 font-mono font-bold text-xs mb-2">N</div>
+                            <span class="text-[10px] font-semibold text-slate-200">Sample 3: Healthy Skin</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Result Box -->
+                    <div id="med-result" class="hidden glass-panel bg-slate-950/60 p-6 border border-slate-800 mt-4 space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+                            <div class="flex flex-col items-center">
+                                <span class="text-[10px] font-mono text-slate-400 mb-2">Simulated CNN Layer Activation (Grad-CAM)</span>
+                                <!-- Mock Attention Overlay -->
+                                <div class="relative w-32 h-32 rounded border border-slate-700 overflow-hidden bg-slate-900 flex items-center justify-center">
+                                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600/30 via-red-600/50 to-yellow-400/40 animate-pulse"></div>
+                                    <div class="w-12 h-12 rounded-full border border-red-500/80 bg-red-500/20 blur-md absolute" style="top: 30%; left: 40%"></div>
+                                    <span class="text-[10px] text-white/80 font-mono z-10">Attention Heatmap</span>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div>
+                                    <span class="text-xs font-mono text-slate-400 block">Classified Category</span>
+                                    <span class="text-xl font-extrabold text-rose-500" id="med-disease">Melanoma</span>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-mono text-slate-400 block">Diagnostic Confidence</span>
+                                    <span class="text-lg font-bold text-white" id="med-conf">94.7%</span>
+                                </div>
+                                <div class="text-xs text-slate-400" id="med-explain">
+                                    The model detected irregular structural borders and pigmentation overlays associated with target lesions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PLAYGROUND 4: AI Chatbot -->
+                <div id="pg-bot" class="hidden space-y-6">
+                    <div class="flex items-center gap-3 border-b border-slate-700 pb-3 mb-4">
+                        <i class="fa-solid fa-comments text-2xl text-accent_sky"></i>
+                        <div>
+                            <h3 class="text-lg font-bold text-white">AI Portfolio Assistant</h3>
+                            <p class="text-xs text-slate-400">Ask questions about Prajwal's resume and technical skill sets.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Container -->
+                    <div class="border border-slate-800 rounded-lg p-4 h-64 overflow-y-auto bg-slate-950/40 flex flex-col gap-4 font-mono text-xs" id="chat-logs">
+                        <div class="self-start bg-slate-800 text-slate-300 p-3 rounded-lg max-w-[80%]">
+                            Hi! I am Prajwal's portfolio bot. Ask me questions like "what is his experience?", "what frameworks does he use?", or "tell me about RAG".
+                        </div>
+                    </div>
+                    
+                    <!-- Chat Inputs -->
+                    <div class="flex gap-2">
+                        <input type="text" id="chat-query" class="flex-1 p-3 rounded-lg widget-input text-xs font-mono" placeholder="Type query here..." onkeypress="handleChatKeyPress(event)">
+                        <button onclick="sendChatMessage()" class="px-6 py-2.5 rounded-lg bg-accent_blue hover:bg-blue-700 font-semibold text-xs text-white transition">
+                            Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Analytics Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate_bg/40 relative">
+        <div class="max-w-5xl mx-auto glass-panel p-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-slate-700 pb-6 mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-brands fa-github text-3xl"></i>
+                        <span>GitHub Analytics</span>
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">Live contributions index for developer: <strong>wwwsshivadas053-source</strong></p>
+                </div>
+                <a href="https://github.com/wwwsshivadas053-source" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold rounded-lg text-slate-200 transition flex items-center gap-2">
+                    Open GitHub Profile <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+            
+            <!-- Git Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <div class="p-4 rounded-lg bg-slate-900/50 border border-slate-800 text-center">
+                    <span class="text-2xl font-extrabold text-white block">8</span>
+                    <span class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Repositories</span>
+                </div>
+                <div class="p-4 rounded-lg bg-slate-900/50 border border-slate-800 text-center">
+                    <span class="text-2xl font-extrabold text-white block">480+</span>
+                    <span class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Yearly Commits</span>
+                </div>
+                <div class="p-4 rounded-lg bg-slate-900/50 border border-slate-800 text-center">
+                    <span class="text-2xl font-extrabold text-white block">24</span>
+                    <span class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Stars Earned</span>
+                </div>
+                <div class="p-4 rounded-lg bg-slate-900/50 border border-slate-800 text-center">
+                    <span class="text-2xl font-extrabold text-white block">96%</span>
+                    <span class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Commit Rate Peak</span>
+                </div>
+            </div>
+            
+            <!-- Mock Contribution Board -->
+            <div>
+                <h3 class="text-xs font-mono text-slate-300 mb-3 uppercase tracking-wider">Activity Heatmap</h3>
+                <div class="overflow-x-auto w-full border border-slate-800/80 rounded p-4 bg-slate-950/40">
+                    <div class="github-grid min-w-[640px]" id="github-cells-container">
+                        <!-- Filled in via script.js -->
+                    </div>
+                    <div class="flex justify-between items-center text-[10px] text-slate-500 font-mono mt-3">
+                        <span>Less active</span>
+                        <div class="flex gap-1 items-center">
+                            <span class="w-2.5 h-2.5 bg-[#161b22] rounded-sm"></span>
+                            <span class="w-2.5 h-2.5 bg-[#0e4429] rounded-sm"></span>
+                            <span class="w-2.5 h-2.5 bg-[#006d32] rounded-sm"></span>
+                            <span class="w-2.5 h-2.5 bg-[#26a641] rounded-sm"></span>
+                            <span class="w-2.5 h-2.5 bg-[#39d353] rounded-sm"></span>
+                        </div>
+                        <span>More active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="py-20 px-4 md:px-8 border-t border-slate-800/40 relative" id="certificates">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Certifications & Credentials</h2>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto" id="certificates-grid">
+                <!-- Loaded dynamically from app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Resume Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate_bg/40 relative" id="resume">
+        <div class="max-w-4xl mx-auto glass-panel p-8">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-slate-700 pb-6 mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-file-pdf text-3xl text-accent_sky"></i>
+                        <span>Interactive Resume Viewer</span>
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-1">Select layouts to view and download his technical resume.</p>
+                </div>
+                <a href="assets/PrajwalTS_resume.pdf" download="PrajwalTS_resume.pdf" class="px-4 py-2 bg-accent_blue hover:bg-blue-700 text-xs font-semibold rounded-lg text-white transition flex items-center gap-2 shadow-lg shadow-accent_blue/20">
+                    <i class="fa-solid fa-download"></i> Download PDF Resume
+                </a>
+            </div>
+            
+            <!-- Layout Toggles -->
+            <div class="flex gap-2 mb-6" id="resume-tabs">
+                <button class="px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300 active" onclick="switchResumeTab('ats')">ATS Friendly Format</button>
+                <button class="px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-300" onclick="switchResumeTab('modern')">Modern Grid View</button>
+            </div>
+            
+            <!-- Resume Content Area -->
+            <div class="border border-slate-800 rounded-lg p-6 bg-slate-950/60 font-mono text-xs text-slate-300 space-y-6 max-h-[500px] overflow-y-auto" id="resume-text-view">
+                <!-- Filled in via script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 md:px-8 relative">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Recommendations</h2>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded"></div>
+            </div>
+            
+            <!-- Testimonial Slider -->
+            <div class="glass-panel p-8 text-center relative overflow-hidden" id="testimonial-slider">
+                <p class="text-slate-300 italic mb-6 text-sm sm:text-base">
+                    "Prajwal demonstrated exceptional analytical capability during our programming sessions. He is highly driven to translate complex machine learning logic into functional, intuitive full-stack web prototypes."
+                </p>
+                <div class="font-bold text-white text-xs sm:text-sm">Academic Project Mentor</div>
+                <div class="text-[10px] text-slate-400 font-mono mt-1">St. Anne's Degree College, Virajpet</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-20 px-4 md:px-8 bg-slate_bg/40 relative" id="contact">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-white">Let's Connect</h2>
+                <p class="text-slate-400 max-w-lg mx-auto text-sm">Send a direct message through the secure EmailJS link below or reach out via phone/email details.</p>
+                <div class="h-1 w-20 bg-accent_sky mx-auto rounded mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Left Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <h3 class="text-xl font-bold text-white">Quick Details</h3>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        I am actively searching for Placement opportunities, Project Internships, and Technical Associate roles starting in 2026.
+                    </p>
+                    
+                    <div class="space-y-4 pt-4">
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-accent_sky text-lg w-6"></i>
+                            <span class="text-xs sm:text-sm text-slate-300">Prajwalts093@gmail.com</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-accent_sky text-lg w-6"></i>
+                            <span class="text-xs sm:text-sm text-slate-300">+91 94826 12382</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fa-solid fa-map-location-dot text-accent_sky text-lg w-6"></i>
+                            <span class="text-xs sm:text-sm text-slate-300">Coorg / Virajpet, Karnataka, India</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-panel p-8 space-y-4" onsubmit="handleContactSubmit(event)">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-[10px] font-mono text-slate-400 mb-1">Full Name</label>
+                                <input type="text" id="contact-name" name="name" class="w-full p-3 rounded-lg widget-input text-xs" required placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-mono text-slate-400 mb-1">Email Address</label>
+                                <input type="email" id="contact-email" name="email" class="w-full p-3 rounded-lg widget-input text-xs" required placeholder="john@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Subject</label>
+                            <input type="text" id="contact-subject" name="subject" class="w-full p-3 rounded-lg widget-input text-xs" required placeholder="Project Opportunity">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-mono text-slate-400 mb-1">Detailed Message</label>
+                            <textarea id="contact-message" name="message" class="w-full h-32 p-3 rounded-lg widget-input text-xs" required placeholder="Write details here..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full py-3 rounded-xl bg-accent_blue hover:bg-blue-700 text-white font-semibold text-xs transition flex items-center justify-center gap-2 shadow-lg shadow-accent_blue/20">
+                            <i class="fa-solid fa-paper-plane"></i> Send Secure Message
+                        </button>
+                    </form>
+                    
+                    <div id="contact-toast" class="hidden mt-4 p-4 rounded-lg bg-accent_green/10 border border-accent_green/30 text-xs text-accent_green text-center font-mono">
+                        Success! Your message has been sent successfully.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 md:px-8 border-t border-slate-800/40 relative">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center">
+            <div class="text-xs text-slate-500 font-mono">
+                © 2026 Prajwal T.S. Built with premium custom elements. All rights reserved.
+            </div>
+            
+            <!-- Social Handles -->
+            <div class="flex gap-4">
+                <a href="https://github.com/wwwsshivadas053-source" target="_blank" class="w-8 h-8 rounded-full border border-slate-700 hover:border-white hover:text-white text-slate-400 flex items-center justify-center transition" aria-label="GitHub Profile">
+                    <i class="fa-brands fa-github text-sm"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/prajwal-t-s-354a57359" target="_blank" class="w-8 h-8 rounded-full border border-slate-700 hover:border-white hover:text-white text-slate-400 flex items-center justify-center transition" aria-label="LinkedIn Profile">
+                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Back to Top Button -->
+        <a href="#" class="fixed bottom-6 right-6 w-10 h-10 rounded-full bg-accent_blue hover:bg-blue-700 text-white flex items-center justify-center transition shadow-lg shadow-accent_blue/30 z-40 opacity-0 pointer-events-none" id="back-to-top">
+            <i class="fa-solid fa-arrow-up"></i>
+        </a>
+    </footer>
+
+    <!-- CASE STUDY DETAILS MODAL OVERLAY -->
+    <div class="modal-overlay" id="project-modal" onclick="closeProjectModal(event)">
+        <div class="modal-content-container glass-panel bg-slate-900 p-6 sm:p-8 relative border border-slate-800 overflow-y-auto" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="hideProjectModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div id="modal-project-content" class="space-y-6 text-sm">
+                <!-- Loaded dynamically based on script.js -->
+            </div>
+        </div>
+    </div>
+    <!-- CERTIFICATES VIEW MODAL OVERLAY -->
+    <div class="modal-overlay" id="certificate-modal" onclick="closeCertificateModalOverlay(event)">
+        <div class="modal-content-container glass-panel bg-slate-900 p-6 relative border border-slate-800 max-w-3xl w-full flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+            <!-- Close Button -->
+            <button onclick="hideCertificateModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-1 text-lg z-50">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <div class="w-full space-y-4 pt-4 flex flex-col">
+                <h3 class="text-lg font-bold text-white text-center" id="cert-modal-title">Certificate</h3>
+                
+                <!-- PDF Iframe Container -->
+                <div class="w-full h-[65vh] rounded-lg border border-slate-800 bg-slate-950 overflow-hidden relative">
+                    <iframe id="cert-modal-iframe" src="" class="w-full h-full border-0" type="application/pdf"></iframe>
+                </div>
+                
+                <div class="flex gap-4 justify-between items-center pt-2 w-full">
+                    <a id="cert-modal-open-new-tab" href="#" target="_blank" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-200 transition flex items-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in New Tab
+                    </a>
+                    <a id="cert-modal-download" href="#" download class="px-4 py-2 bg-accent_blue hover:bg-blue-700 text-xs font-semibold rounded-lg text-white transition flex items-center gap-2 shadow-lg shadow-accent_blue/20">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Script Logic -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,442 @@
+/* ==========================================================================
+   AI Portfolio Website Design System - Prajwal T.S.
+   ========================================================================== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    /* Color Tokens */
+    --bg-primary: #0F172A;
+    --bg-secondary: #0B0F19;
+    --color-primary: #2563EB;
+    --color-accent: #38BDF8;
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-text: #F8FAFC;
+    --color-text-muted: #94A3B8;
+    
+    /* Neon Glows */
+    --glow-primary: rgba(37, 99, 235, 0.35);
+    --glow-accent: rgba(56, 189, 248, 0.3);
+    --glow-success: rgba(16, 185, 129, 0.25);
+    
+    /* Fonts */
+    --font-headings: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-code: 'JetBrains Mono', monospace;
+
+    /* Mouse Glow position */
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Selection */
+::selection {
+    background-color: rgba(56, 189, 248, 0.3);
+    color: var(--color-text);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+}
+
+/* ==========================================================================
+   Background Aurora Mesh & Particles
+   ========================================================================== */
+.aurora-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: radial-gradient(circle at 10% 20%, rgba(15, 23, 42, 1) 0%, rgba(11, 15, 25, 1) 90%);
+    overflow: hidden;
+}
+
+.aurora-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.28;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.aurora-1 {
+    top: -10%;
+    right: 5%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(circle, var(--color-primary) 0%, rgba(37, 99, 235, 0) 70%);
+    animation: rotateAurora 25s infinite alternate ease-in-out;
+}
+
+.aurora-2 {
+    bottom: -15%;
+    left: -5%;
+    width: 60vw;
+    height: 60vw;
+    background: radial-gradient(circle, var(--color-accent) 0%, rgba(56, 189, 248, 0) 70%);
+    animation: rotateAurora 30s infinite alternate-reverse ease-in-out;
+}
+
+.aurora-3 {
+    top: 40%;
+    left: 25%;
+    width: 35vw;
+    height: 35vw;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(16, 185, 129, 0) 70%);
+    animation: floatGlow 18s infinite ease-in-out;
+}
+
+@keyframes rotateAurora {
+    0% { transform: rotate(0deg) translate(0px, 0px) scale(1); }
+    50% { transform: rotate(180deg) translate(50px, -50px) scale(1.1); }
+    100% { transform: rotate(360deg) translate(-20px, 40px) scale(0.9); }
+}
+
+@keyframes floatGlow {
+    0%, 100% { transform: translate(0px, 0px) scale(1); }
+    50% { transform: translate(-30px, 60px) scale(1.2); }
+}
+
+/* ==========================================================================
+   Premium Glassmorphism & Neumorphism Layout Utilities
+   ========================================================================== */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    border-color: rgba(56, 189, 248, 0.25);
+    box-shadow: 0 12px 40px 0 rgba(37, 99, 235, 0.15);
+}
+
+.glass-card-interactive {
+    position: relative;
+    overflow: hidden;
+}
+
+.glass-card-interactive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(37, 99, 235, 0) 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.glass-card-interactive:hover::before {
+    opacity: 1;
+}
+
+/* Cursor Glow Tracking Class */
+.cursor-glow-container {
+    position: relative;
+}
+
+.cursor-glow-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255, 255, 255, 0.05), transparent 40%);
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   Hero Section Animations
+   ========================================================================== */
+#hero-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: all;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--color-accent);
+    margin-left: 4px;
+    animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Magnetic Button Mechanics */
+.btn-magnetic {
+    position: relative;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 2;
+}
+
+/* ==========================================================================
+   Skills Section - Circular Progress
+   ========================================================================== */
+.skill-card {
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.circular-progress {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.circular-progress svg {
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+}
+
+.circular-progress circle {
+    fill: none;
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+.circular-progress .bg-circle {
+    stroke: rgba(255, 255, 255, 0.05);
+}
+
+.circular-progress .progress-circle {
+    stroke: var(--color-accent);
+    stroke-dasharray: 226;
+    stroke-dashoffset: 226;
+    transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-progress .progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.85rem;
+    font-weight: 700;
+    font-family: var(--font-code);
+    color: var(--color-text);
+}
+
+/* ==========================================================================
+   Timeline System
+   ========================================================================== */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    border-left-color: var(--color-accent);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: calc(-6px - 1px);
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 12px var(--color-accent);
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   Project Cards / Gallery / Badges
+   ========================================================================== */
+.filter-btn {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    box-shadow: 0 4px 14px var(--glow-primary);
+}
+
+.badge-tech {
+    font-family: var(--font-code);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    color: var(--color-accent);
+}
+
+/* ==========================================================================
+   GitHub Contribution Mock Grid
+   ========================================================================== */
+.github-grid {
+    display: grid;
+    grid-template-columns: repeat(53, 1fr);
+    gap: 2px;
+}
+
+.github-cell {
+    aspect-ratio: 1;
+    border-radius: 1px;
+    background-color: #161b22;
+    transition: transform 0.1s ease;
+}
+
+.github-cell:hover {
+    transform: scale(1.3);
+    z-index: 2;
+}
+
+.github-cell.lvl-0 { background-color: #161b22; }
+.github-cell.lvl-1 { background-color: #0e4429; }
+.github-cell.lvl-2 { background-color: #006d32; }
+.github-cell.lvl-3 { background-color: #26a641; }
+.github-cell.lvl-4 { background-color: #39d353; }
+
+/* ==========================================================================
+   Interactive Modals
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(11, 15, 25, 0.75);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content-container {
+    width: 90%;
+    max-width: 900px;
+    max-height: 85vh;
+    overflow-y: auto;
+    transform: scale(0.92);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.active .modal-content-container {
+    transform: scale(1);
+}
+
+/* Custom interactive tools styling */
+.widget-input {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+.widget-input:focus {
+    border-color: var(--color-accent);
+    outline: none;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.15);
+}
+
+/* Interactive play buttons */
+.pulse-glow {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(56, 189, 248, 0); }
+}
+
+/* ==========================================================================
+   Lighthouse and Responsive Alignment
+   ========================================================================== */
+@media (max-width: 768px) {
+    .github-grid {
+        grid-template-columns: repeat(27, 1fr);
+    }
+    
+    .modal-content-container {
+        width: 95%;
+        max-height: 90vh;
+    }
+}
